@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Javascript之变量</title>
+    <script src="./utils/common.js"></script>
+  </head>
+  <body>
+    <script>
+      logSplitLine("数据类型定义start");
+
+      // 各种数据类型的定义
+      var str = "hello";
+      var num = 123;
+      var boo = true;
+      var sbl = Symbol("name");
+      var no = null;
+      var undef = undefined;
+
+      // 引用类型
+      var obj = { a: 1, b: 2 };
+      var arr = [1, 2, 3];
+      var date = new Date();
+      var regExp = /w+/;
+      var fn = function() {
+        console.log(1);
+      };
+
+      // 类型判断1 => typeof
+      function logVariableType(key) {
+        var value = window[key];
+        console.log(`var ${key} =`, window[key]);
+        console.log(`   typeof ${key} => ${typeof value}\n\n`);
+      }
+
+      ["str", "num", "boo", "sbl", "arr", "date", "fn", "no", "undef"].forEach(
+        key => {
+          logVariableType(key);
+        }
+      );
+
+      logSplitLine("instanceof测试start");
+
+      // 类型判断2 => instanceof
+      // 实质判断的是,对象的 __proto__ 链条中是否存在与构造函数的 prototype 有对等关系
+
+      console.log("arr instanceof Array =>", arr instanceof Array); // true
+      console.log("arr instanceof Object =>", arr instanceof Object); // true
+
+      function Person() {}
+      var obj2 = { a: 1, b: 2 };
+
+      // 强行将一个对象(obj2),变成构造函数(Person) 的一个实例
+      obj2.__proto__ = Person.prototype;
+      console.log(
+        obj2,
+        Person,
+        "obj2 instanceof Person => ",
+        obj2 instanceof Person
+      );
+
+      logSplitLine("toString方法判断类型");
+
+      var p1 = new Person();
+      console.log(Object.prototype.toString.call(obj));
+      console.log(Object.prototype.toString.call(fn));
+      console.log(Object.prototype.toString.call(arr));
+      console.log(Object.prototype.toString.call(date));
+      console.log(Object.prototype.toString.call(regExp));
+      console.log(Object.prototype.toString.call(p1)); // 自定义的构造函数,最终打印的是 [object Object]
+
+      console.log(dd);
+      dd=20;
+      
+    </script>
+  </body>
+</html>
