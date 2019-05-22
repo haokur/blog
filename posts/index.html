@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../libs/prism/themes/prism-coy.css" />
+    <link
+      rel="stylesheet"
+      href="../libs/prism/plugins/line-numbers/prism-line-numbers.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../libs/prism/plugins/toolbar/prism-toolbar.css"
+    />
+  </head>
+  <body>
+    <div id="wrap"></div>
+    <script src="../js/ajax.js"></script>
+    <script src="../libs/markdown-it/markdown-it.min.js"></script>
+    <script src="../libs/prism/prism.js" data-manual></script>
+    <script src="../libs/prism/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="../libs/prism/plugins/toolbar/prism-toolbar.js"></script>
+    <script src="../libs/prism/plugins/copy-to-clipboard/prism-copy-to-clipboard.js"></script>
+    <script>
+      var md = new markdownit();
+
+      // 获取 markdown 内容,然后渲染
+      ajax({
+        url: "./test.md",
+        method: "GET",
+        format: "json",
+        headers: {},
+        data: {}
+      })
+        .then(res => {
+          var result = md.render(res);
+          document.querySelector("#wrap").innerHTML = result;
+          Prism.highlightAll();
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>
