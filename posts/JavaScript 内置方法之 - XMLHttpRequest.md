@@ -1,3 +1,4 @@
+# JavaScript 内置方法之 - XMLHttpRequest
 
 ## XMLHttpRequest 类
 
