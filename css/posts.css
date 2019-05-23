@@ -2,6 +2,73 @@ body {
   margin: 0;
   padding: 0; }
 
-.post-wrap {
-  width: 1000px;
+.container {
+  width: 800px;
+  max-width: 100%;
   margin: 0 auto; }
+
+.post-wrap {
+  padding: 0 10px;
+  font-size: 15px;
+  line-height: 2; }
+  .post-wrap ul {
+    padding-left: 28px; }
+  .post-wrap ol {
+    padding-left: 18px; }
+  .post-wrap pre, .post-wrap img, .post-wrap code {
+    max-width: 100%; }
+  .post-wrap pre {
+    overflow-x: scroll; }
+    .post-wrap pre > code {
+      padding: 14px;
+      line-height: 1.6;
+      font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace; }
+  .post-wrap blockquote {
+    padding: 0;
+    border-left: 3px solid #2c69a0;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 20px 0;
+    font-size: 14px;
+    font-style: italic; }
+  .post-wrap p {
+    margin: 0;
+    padding: 0; }
+  .post-wrap p > code {
+    font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    background: #eee;
+    padding: 2px 5px 2px 5px; }
+  .post-wrap p > strong {
+    font-weight: 500; }
+  .post-wrap a {
+    text-decoration: none;
+    color: #284a66; }
+    .post-wrap a:hover {
+      text-decoration: underline; }
+  .post-wrap a:visited, .post-wrap a:hover, .post-wrap a:focus, .post-wrap a:active {
+    color: #284a66; }
+  .post-wrap p > img {
+    margin: 10px auto; }
+  .post-wrap table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: keep-all;
+    margin: 20px 0; }
+    .post-wrap table tr {
+      background-color: #fff;
+      border-top: 1px solid #ccc; }
+      .post-wrap table tr:nth-child(2n) {
+        background-color: #f8f8f8; }
+    .post-wrap table thead tr {
+      background-color: #F8F8F8; }
+    .post-wrap table td, .post-wrap table th {
+      padding: 6px 13px;
+      border: 1px solid #ddd; }
+    .post-wrap table td > code {
+      font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+      background: #eee;
+      padding: 2px 5px 2px 5px; }

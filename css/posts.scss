@@ -2,8 +2,103 @@ body{
     margin: 0;
     padding: 0;
 }
+.container{
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+}
 
 .post-wrap{
-    width: 1000px;
-    margin: 0 auto;
+    padding: 0 10px;
+    font-size: 15px;
+    line-height: 2;
+    ul{
+        padding-left: 28px;
+    }
+    ol{
+        padding-left: 18px;
+    }
+    pre,img,code{
+        max-width: 100%;
+    }
+    pre{
+        overflow-x: scroll;
+        &>code{
+            padding: 14px;
+            line-height: 1.6;
+            font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+        }
+    }
+    // 引用
+    blockquote{
+        padding: 0;
+        border-left: 3px solid #2c69a0;
+        padding-left: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin: 20px 0;
+        font-size: 14px;
+        font-style: italic;
+    }
+    p{
+        margin: 0;
+        padding: 0;
+    }
+    // 行内 code
+    p>code{
+        font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+        background: #eee;
+        padding: 2px 5px 2px 5px;
+    }
+    // 行列强调
+    p>strong{
+        font-weight: 500;
+    }
+    // 链接
+    a{
+        text-decoration: none;
+        color: #284a66;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    a:visited, a:hover, a:focus, a:active {
+        color: #284a66;
+    }
+    // 图片
+    p>img{
+        margin: 10px auto;
+        // display: inherit;
+    }
+    // 表格
+    table{
+        border-collapse: collapse;
+        border-spacing: 0;
+        display: block;
+        width: 100%;
+        overflow: auto;
+        word-break: keep-all;
+        margin: 20px 0;
+        tr{
+            background-color: #fff;
+            border-top: 1px solid #ccc;
+            &:nth-child(2n) {
+                background-color: #f8f8f8;
+            }
+        }
+        thead{
+            tr{
+                background-color: #F8F8F8;
+            }
+        }
+        td,th{
+            padding: 6px 13px;
+            border: 1px solid #ddd;
+        }
+        td>code{
+            font: 14px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+            background: #eee;
+            padding: 2px 5px 2px 5px;
+        }
+    }
 }
