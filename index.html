@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>🐸小跳蛙啊</title>
+    <script src="./js/ajax.js"></script>
+  </head>
+  <body>
+    <ul id="posts-list" class="posts-list"></ul>
+    <script>
+      getPostsContent();
+
+      // 获取posts目录下的所有markdown文件
+      function getPostsContent() {
+        var getGithubContentUrl =
+          "https://api.github.com/repos/haokur/haokur.github.io/contents/posts";
+        ajax({
+          url: getGithubContentUrl,
+          method: "GET",
+          format: "json",
+          headers: {},
+          data: {}
+        }).then(res => {
+          var data = JSON.parse(res);
+          console.log(data);
+
+          var mdFileNames = data.filter(item => item.name.includes(".md"));
+          var postsListHtml = "";
+          postsListHtml = mdFileNames
+            .map(item => {
+              let filename = item.name.replace(".md", "");
+              return (
+                '<li class="posts-item"><a href="posts/index.html#/' +
+                filename +
+                '">' +
+                filename +
+                "</a></li>"
+              );
+            })
+            .join("");
+          document.querySelector("#posts-list").innerHTML = postsListHtml;
+        });
+      }
+    </script>
+  </body>
+</html>
