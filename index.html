@@ -24,15 +24,13 @@
           data: {}
         }).then(res => {
           var data = JSON.parse(res);
-          console.log(data);
-
           var mdFileNames = data.filter(item => item.name.includes(".md"));
           var postsListHtml = "";
           postsListHtml = mdFileNames
             .map(item => {
               let filename = item.name.replace(".md", "");
               return (
-                '<li class="posts-item"><a href="posts/index.html#/' +
+                '<li class="posts-item"><a href="posts.html?source=' +
                 filename +
                 '">' +
                 filename +

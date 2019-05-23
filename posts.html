@@ -5,21 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <!-- <link
-      rel="stylesheet"
-      href="../node_modules/highlight.js/styles/github.css"
-    /> -->
     <link
       rel="stylesheet"
-      href="../node_modules/highlight.js/styles/solarized-light.css"
+      href="./libs/highlightjs/styles/solarized-light.css"
     />
-    <link rel="stylesheet" href="../css/posts.css" />
+    <link rel="stylesheet" href="./css/posts.css" />
   </head>
   <body>
     <div id="post-wrap" class="post-wrap"></div>
-    <script src="../js/ajax.js"></script>
-    <script src="../libs/markdown-it/markdown-it.min.js"></script>
-    <script src="../libs/highlight.min.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/ajax.js"></script>
+    <script src="./libs/markdown-it/markdown-it.min.js"></script>
+    <script src="./libs/highlightjs/highlight.min.js"></script>
     <script>
       var md = new markdownit();
 
@@ -37,13 +34,13 @@
 
       // 获取路由中的markddown文件参数
       function getFileNameByRoute() {
-        return location.hash.replace("#/", "");
+        return utils.urlSearch("source") || "test";
       }
 
       // 获取 markdown 内容,然后渲染
       function setMarkdownHtml(fileName) {
         ajax({
-          url: "./" + fileName + ".md",
+          url: "./posts/" + fileName + ".md",
           method: "GET",
           format: "json",
           headers: {},

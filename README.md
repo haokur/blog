@@ -1,7 +1,8 @@
-## 目录
+### 简单实现原理
 
-### Web
+通过 `get` 请求得到 `markdown` 内容,使用 `markdown-it` 解析成 `markdown` 内容即可.
 
-#### Javascript
+### 依赖库
 
-- [总览](https://haokur.github.io/blog/web/javascript/1-outlook.md)
+- markdown-it
+- highlightjs
