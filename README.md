@@ -6,3 +6,12 @@
 
 - markdown-it
 - highlightjs
+
+
+### 目录结构说明
+
+- configs/ 一些常用的配置文件
+- css/ 样式文件
+- js/ 脚本文件
+- libs/ 第三方库
+- posts/ 文章总结文件夹
