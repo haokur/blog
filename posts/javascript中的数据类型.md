@@ -150,4 +150,4 @@ var str = 'hello world';
 
 > 以上操作，都对原字符串没有任何影响。
 
-[配套字符串在线操作演示](https://haokur.github.io/demos/web/js.html)
+[配套字符串在线操作演示](https://haokur.github.io/demos/web/string.html)

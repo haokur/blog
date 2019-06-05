@@ -12,26 +12,49 @@
         padding: 0;
       }
       #app {
-        padding: 100px 20px;
+        padding: 50px 20px;
+      }
+      .main-input{
+        width: 500px;
+        display: block;
+        margin: 20px auto;
+        line-height: 20px;
+        padding: 10px 4px;
       }
       .action-header {
         display: flex;
         font-weight: 500;
         justify-content: space-between;
+        border: 1px solid #e1e1e1;
+        margin-bottom: -1px;
       }
       .action-header__item {
+        box-sizing: border-box;
         width: 200px;
         text-align: center;
+        border-right: 1px solid #e1e1e1;
+        margin-right: -1px;
+        padding: 10px;
       }
       .action-header__item.big {
         flex: 1;
       }
       .action-row {
         display: flex;
+        border: 1px solid #e1e1e1;
+        margin-bottom: -1px;
+      }
+      .action-row:nth-of-type(2n){
+        background: #f5f5f5;
       }
       .action-row__block {
+        box-sizing: border-box;
         width: 200px;
-        text-align: center;
+        padding-left: 10px;
+        border-right: 1px solid #e1e1e1;
+        margin-right: -1px;
+        padding: 8px 8px;
+        /* text-align: center; */
       }
       .action-row__block.big {
         flex: 1;
@@ -42,13 +65,20 @@
       }
       .params-list input {
         width: 80px;
+        line-height: 20px;
+        padding: 4px 6px;
+        margin-left: 4px;
+        margin-top: 4px;
+      }
+      .params-item{
+        margin-right: 10px;
       }
     </style>
   </head>
   <body>
     <div id="app">
       <!-- 字符串输入 -->
-      <input type="text" v-model="originStr" @change="initData" />
+      <input type="text" v-model="originStr" @change="initData" class="main-input"/>
       <!-- 字符串操作 -->
       <div class="action-header">
         <div class="action-header__item">方法名</div>
@@ -76,7 +106,7 @@
               v-for="(param,index) in configs[key].params"
               :key="index"
             >
-              <b>{{ param.name }}</b>
+              <div>{{ param.name }}({{param.type}})</div>
               <input type="text" v-model="param.value" @keyup="callFunc(key)" />
             </div>
           </div>
