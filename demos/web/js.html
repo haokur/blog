@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>javascript常见示例</title>
+    <script src="../../libs/vue/vue.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #app {
+        padding: 100px 20px;
+      }
+      .action-header {
+        display: flex;
+        font-weight: 500;
+        justify-content: space-between;
+      }
+      .action-header__item {
+        width: 200px;
+        text-align: center;
+      }
+      .action-header__item.big {
+        flex: 1;
+      }
+      .action-row {
+        display: flex;
+      }
+      .action-row__block {
+        width: 200px;
+        text-align: center;
+      }
+      .action-row__block.big {
+        flex: 1;
+        text-align: left;
+      }
+      .params-list {
+        display: flex;
+      }
+      .params-list input {
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 字符串输入 -->
+      <input type="text" v-model="originStr" @change="initData" />
+      <!-- 字符串操作 -->
+      <div class="action-header">
+        <div class="action-header__item">方法名</div>
+        <div class="action-header__item">语法</div>
+        <div class="action-header__item big">参数表</div>
+        <div class="action-header__item">返回结果</div>
+        <div class="action-header__item">返回类型</div>
+        <div class="action-header__item">源数据</div>
+      </div>
+      <div class="action-row" v-for="(key,index) in prototypeKeys" :key="index">
+        <div class="action-row__block">
+          <b>{{ key }}</b>
+        </div>
+        <div class="action-row__block">
+          <b
+            >str.{{
+              key
+            }}({{ configs[key].params.map(item=>item.name).join(",") }})</b
+          >
+        </div>
+        <div class="action-row__block big">
+          <div class="params-list">
+            <div
+              class="params-item"
+              v-for="(param,index) in configs[key].params"
+              :key="index"
+            >
+              <b>{{ param.name }}</b>
+              <input type="text" v-model="param.value" @keyup="callFunc(key)" />
+            </div>
+          </div>
+        </div>
+        <div class="action-row__block">
+          <b>'{{ configs[key].result }}'</b>
+        </div>
+        <div class="action-row__block">
+          <b>{{ typeof(configs[key].result) }}</b>
+        </div>
+        <div class="action-row__block">
+          <b>{{ configs[key].origin }}</b>
+        </div>
+      </div>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: function() {
+          return {
+            originStr: "hello world",
+            prototypeKeys: [],
+            configs: {
+              charAt: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "index",
+                    type: "number",
+                    value: 0
+                  }
+                ]
+              },
+              charCodeAt: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "index",
+                    type: "number",
+                    value: 0
+                  }
+                ]
+              },
+              concat: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "data",
+                    type: "string",
+                    value: "xxx"
+                  }
+                ]
+              },
+              endsWith: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "string",
+                    type: "string",
+                    value: "xxx"
+                  }
+                ]
+              },
+              includes: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "string",
+                    type: "string",
+                    value: "o"
+                  }
+                ]
+              },
+              indexOf: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "string",
+                    type: "string",
+                    value: "o"
+                  }
+                ]
+              },
+              lastIndexOf: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "string",
+                    type: "string",
+                    value: "o"
+                  }
+                ]
+              },
+              padEnd: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "len",
+                    type: "number",
+                    value: 13
+                  },
+                  {
+                    name: "string",
+                    type: "string",
+                    value: "哈"
+                  }
+                ]
+              },
+              padStart: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "len",
+                    type: "number",
+                    value: 13
+                  },
+                  {
+                    name: "string",
+                    type: "string",
+                    value: "哈"
+                  }
+                ]
+              },
+              repeat: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "n",
+                    type: "number",
+                    value: 2
+                  }
+                ]
+              },
+              replace: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "str1",
+                    type: "string",
+                    value: "o"
+                  },
+                  {
+                    name: "str2",
+                    type: "string",
+                    value: "哈"
+                  }
+                ]
+              },
+              search: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "str1",
+                    type: "string",
+                    value: "o"
+                  }
+                ]
+              },
+              slice: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "start",
+                    type: "number",
+                    value: 1
+                  },
+                  {
+                    name: "end",
+                    type: "number",
+                    value: 4
+                  }
+                ]
+              },
+              split: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "separator",
+                    type: "string",
+                    value: "o"
+                  }
+                ]
+              },
+              startsWith: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "searchStr",
+                    type: "string",
+                    value: "xx"
+                  }
+                ]
+              },
+              substr: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "start",
+                    type: "number",
+                    value: 1
+                  },
+                  {
+                    name: "length",
+                    type: "number",
+                    value: 4
+                  }
+                ]
+              },
+              substring: {
+                origin: "",
+                result: "",
+                params: [
+                  {
+                    name: "start",
+                    type: "number",
+                    value: 1
+                  },
+                  {
+                    name: "end",
+                    type: "number",
+                    value: 4
+                  }
+                ]
+              },
+              toLowerCase: {
+                origin: "",
+                result: "",
+                params: []
+              },
+              toString: {
+                origin: "",
+                result: "",
+                params: []
+              },
+              toUpperCase: {
+                origin: "",
+                result: "",
+                params: []
+              },
+              trim: {
+                origin: "",
+                result: "",
+                params: []
+              },
+              trimEnd: {
+                origin: "",
+                result: "",
+                params: []
+              },
+              trimLeft: {
+                origin: "",
+                result: "",
+                params: []
+              },
+              trimRight: {
+                origin: "",
+                result: "",
+                params: []
+              },
+              trimStart: {
+                origin: "",
+                result: "",
+                params: []
+              },
+              valueOf: {
+                origin: "",
+                result: "",
+                params: []
+              }
+            }
+          };
+        },
+        mounted() {
+          this.prototypeKeys = Object.keys(this.configs);
+          this.initData();
+        },
+        methods: {
+          initData() {
+            let value = this.originStr;
+            this.prototypeKeys.forEach(key => {
+              this.configs[key].origin = value;
+              this.callFunc(key);
+            });
+          },
+          callFunc(funcName) {
+            let originData = this.configs[funcName];
+            let formatParmas = [];
+            originData.params.forEach((param, index) => {
+              let value = param.value;
+              if (param.type === "number") {
+                formatParmas.push(parseFloat(value));
+              } else if (param.type === "string") {
+                formatParmas.push(value + "");
+              } else {
+                formatParmas.push(value);
+              }
+            });
+            // console.log(originData.origin[funcName], formatParmas);
+            originData.result = originData.origin[funcName](...formatParmas);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
