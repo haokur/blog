@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>1231</div>
+    <script>
+      function test(a, b, c, d) {
+        console.log(a, b, c, d);
+      }
+
+      var obj = {};
+      var test2 = test.bind(obj, 1, 2, 3);
+      test2(4, 5, 6, 7);
+    </script>
+  </body>
+</html>
