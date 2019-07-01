@@ -17,6 +17,6 @@
 
 ### 接下来需要加强的点
 
-- [ ] 成品的高阶业务组件库 [haokur-ui](https://github.com/haokur/haokur-ui)
-- [ ] 算法(haokur-algorithm)[haokur-algorithm](https://github.com/haokur/haokur-ui)
-- [ ] 丰富 webflow-cli 功能 [webflow-cli](https://github.com/haokur/webflow-cli)
+-   [ ] 成品的高阶业务组件库 [haokur-ui](https://github.com/haokur/haokur-ui)
+-   [ ] 算法(haokur-algorithm)[haokur-algorithm](https://github.com/haokur/haokur-ui)
+-   [ ] 丰富 webflow-cli 功能 [webflow-cli](https://github.com/haokur/webflow-cli)
