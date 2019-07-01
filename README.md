@@ -7,7 +7,6 @@
 - markdown-it
 - highlightjs
 
-
 ### 目录结构说明
 
 - configs/ 一些常用的配置文件
@@ -15,3 +14,9 @@
 - js/ 脚本文件
 - libs/ 第三方库
 - posts/ 文章总结文件夹
+
+### 接下来需要加强的点
+
+[ ] 成品的高阶业务组件库 [haokur-ui](https://github.com/haokur/haokur-ui)
+[ ] 算法(haokur-algorithm)[haokur-algorithm](https://github.com/haokur/haokur-ui)
+[ ] 丰富 webflow-cli 功能 [webflow-cli](https://github.com/haokur/webflow-cli)
