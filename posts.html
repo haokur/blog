@@ -53,6 +53,7 @@
         })
           .then(res => {
             var result = md.render(res);
+            document.title = decodeURIComponent(fileName);
             document.querySelector("#post-wrap").innerHTML = result;
             document.querySelectorAll("pre code").forEach(block => {
               hljs.highlightBlock(block);

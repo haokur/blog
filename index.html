@@ -17,7 +17,7 @@
         margin-right: auto;
         padding-top: 40px;
       }
-      .content{
+      .content {
         padding: 0 16px 40px 16px;
       }
       .home-header {
@@ -35,7 +35,7 @@
         font-size: 14px;
         font-style: italic;
       }
-      .posts-list{
+      .posts-list {
         padding-left: 20px;
         margin-left: 10px;
         margin-top: 20px;
@@ -68,7 +68,36 @@
       </main>
     </div>
     <script>
-      getPostsContent();
+      // 文章列表
+      var postsList = [
+        {
+          title: "Vue知识点汇总",
+          time: "2019-07-01"
+        },
+        {
+          title: "基础知识点汇总",
+          time: "2019-06-28"
+        },
+        {
+          title: "js基础知识集锦",
+          time: "2019-06-22"
+        },
+        {
+          title: "js字符串",
+          time: "2019-06-12"
+        },
+        {
+          title: "移动端开发列表页的套路",
+          time: "2019-06-05"
+        },
+        {
+          title: "JavaScript 内置方法之 - XMLHttpRequest",
+          time: "2019-06-01"
+        }
+      ];
+
+      renderPostsList(postsList);
+      // getPostsContent();
 
       // 获取posts目录下的所有markdown文件
       function getPostsContent() {
@@ -82,22 +111,31 @@
           data: {}
         }).then(res => {
           var data = JSON.parse(res);
-          var mdFileNames = data.filter(item => item.name.includes(".md"));
-          var postsListHtml = "";
-          postsListHtml = mdFileNames
-            .map(item => {
-              let filename = item.name.replace(".md", "");
-              return (
-                '<li class="posts-item"><a target="_blank" href="posts.html?source=' +
-                filename +
-                '">' +
-                filename +
-                "</a></li>"
-              );
-            })
-            .join("");
-          document.querySelector("#posts-list").innerHTML = postsListHtml;
+          var mdFileNames = data
+            .filter(item => item.name.includes(".md"))
+            .map(item => item.name.replace(".md", ""));
+          renderPostsList(postsList);
         });
+      }
+
+      // 渲染页面列表
+      function renderPostsList(postsList) {
+        var postsListHtml = "";
+        postsListHtml = postsList
+          .map(item => {
+            return (
+              '<li class="posts-item"><a target="_blank" href="posts.html?source=' +
+              encodeURIComponent(item.title) +
+              '">' +
+              item.title +
+              "（" +
+              item.time +
+              "）" +
+              "</a></li>"
+            );
+          })
+          .join("");
+        document.querySelector("#posts-list").innerHTML = postsListHtml;
       }
     </script>
   </body>
